@@ -1,0 +1,1279 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .custom-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #2463eb;
+    --light-blue: #eef6ff;
+    --mint: #21c7a8;
+    --dark: #111c32;
+    --text: #172033;
+    --muted: #718096;
+    --border: #e6edf5;
+    --bg: #f7fafd;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    background: white;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s ease, visibility .2s ease;
+}
+
+.login-modal.is-open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.login-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 28, 50, .62);
+}
+
+.login-panel {
+    position: relative;
+    width: min(100%, 430px);
+    padding: 2.25rem;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(17, 28, 50, .2);
+    transform: translateY(12px) scale(.98);
+    transition: transform .2s ease;
+}
+
+.login-modal.is-open .login-panel {
+    transform: translateY(0) scale(1);
+}
+
+.login-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.login-close:hover {
+    background: #e2e8f0;
+    color: var(--text);
+}
+
+.login-panel-heading {
+    text-align: center;
+}
+
+.login-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1rem;
+    border-radius: 14px;
+    background: var(--light-blue);
+    color: var(--blue);
+}
+
+.login-kicker {
+    margin-bottom: .35rem;
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.login-panel h2 {
+    margin-bottom: .45rem;
+    color: var(--dark);
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.login-panel-heading > p:last-child {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.login-form {
+    display: grid;
+    gap: .55rem;
+    margin-top: 1.75rem;
+}
+
+.login-form label {
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.login-form input {
+    width: 100%;
+    height: 44px;
+    padding: 0 .85rem;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.login-form input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(36, 99, 235, .12);
+}
+
+.login-submit {
+    height: 44px;
+    margin-top: .65rem;
+    border: 0;
+    border-radius: 7px;
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.login-submit:hover {
+    background: #1553d4;
+}
+
+.login-status {
+    min-height: 18px;
+    color: #12a98d;
+    font-size: 11px;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .login-panel {
+        padding: 2rem 1.35rem 1.5rem;
+    }
+}
+
+
+/* ================= COMMON ================= */
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.badge {
+    display: inline-block;
+    background: #dffff7;
+    color: #12a98d;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    margin-bottom: 13px;
+}
+
+.section-heading h1,
+.section-heading h2 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ================= PRICING ================= */
+
+.pricing-section {
+    background: var(--bg);
+    padding: 80px 6% 90px;
+}
+
+.pricing-container {
+    max-width: 1050px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.price-card {
+    position: relative;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 24px 22px;
+    box-shadow: 0 5px 18px rgba(20, 40, 80, .03);
+}
+
+.price-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-description {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+    min-height: 35px;
+}
+
+.price {
+    font-size: 27px;
+    font-weight: 800;
+    margin: 22px 0;
+}
+
+.price span {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--muted);
+}
+
+.line {
+    height: 1px;
+    background: #edf1f5;
+    margin-bottom: 20px;
+}
+
+.price-card h4 {
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+.price-card ul {
+    list-style: none;
+    min-height: 135px;
+}
+
+.price-card li {
+    font-size: 11px;
+    color: #5d6879;
+    margin-bottom: 11px;
+}
+
+.price-card li::first-letter {
+    color: var(--mint);
+}
+
+.outline-btn,
+.primary-btn {
+    width: 100%;
+    height: 38px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.outline-btn {
+    background: #edf7ff;
+    color: var(--blue);
+}
+
+.outline-btn:hover {
+    background: #dceeff;
+}
+
+.primary-btn {
+    background: var(--blue);
+    color: white;
+    box-shadow: 0 5px 12px rgba(36, 99, 235, .2);
+}
+
+.primary-btn:hover {
+    background: #1553d4;
+    transform: translateY(-1px);
+}
+
+
+/* FEATURED CARD */
+
+.price-card.featured {
+    border: 2px solid #4b83f4;
+    transform: translateY(-8px);
+}
+
+.popular {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: var(--blue);
+    color: white;
+
+    padding: 5px 15px;
+    border-radius: 20px;
+
+    font-size: 8px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+
+/* ================= STEPS ================= */
+
+.steps-section {
+    padding: 85px 6% 90px;
+    background: white;
+}
+
+.steps-container {
+    max-width: 1050px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+    text-align: center;
+}
+
+.step-icon {
+    position: relative;
+
+    width: 48px;
+    height: 48px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eff7ff;
+    border-radius: 50%;
+
+    font-size: 20px;
+}
+
+.step-icon span {
+    position: absolute;
+
+    top: -3px;
+    right: -5px;
+
+    width: 16px;
+    height: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: var(--mint);
+    color: white;
+
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.step h3 {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* ================= CTA ================= */
+
+.cta-section {
+    padding: 0 6% 80px;
+}
+
+.cta-box {
+    max-width: 1050px;
+    margin: auto;
+
+    background: var(--dark);
+
+    border-radius: 10px;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    color: white;
+}
+
+.cta-box h2 {
+    font-size: 29px;
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    color: #aeb8ca;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.cta-box .primary-btn {
+    width: auto;
+    padding: 0 28px;
+}
+
+
+/* ================= ABOUT US ================= */
+
+.about-section {
+    padding: 85px 6% 90px;
+    background: var(--bg);
+}
+
+.team-container {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.team-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(20, 40, 80, .04);
+}
+
+.team-photo {
+    display: block;
+    width: 100%;
+    height: 285px;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+.team-content {
+    padding: 22px;
+}
+
+.team-role {
+    color: var(--mint);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+}
+
+.team-content h3 {
+    margin: 5px 0 8px;
+    color: var(--dark);
+    font-size: 19px;
+}
+
+.team-content p {
+    min-height: 57px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.team-links {
+    display: flex;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.team-links a,
+.contact-email {
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.team-links a:hover,
+.contact-email:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= CONTACT US ================= */
+
+.contact-section {
+    padding: 85px 6% 90px;
+    background: white;
+}
+
+.contact-container {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.contact-copy .badge {
+    margin-bottom: 18px;
+}
+
+.contact-copy h2 {
+    max-width: 380px;
+    margin-bottom: 14px;
+    color: var(--dark);
+    font-size: 32px;
+    line-height: 1.15;
+}
+
+.contact-copy p {
+    max-width: 370px;
+    margin-bottom: 22px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.contact-form {
+    display: grid;
+    gap: 15px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(20, 40, 80, .05);
+}
+
+.contact-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.contact-form label {
+    display: grid;
+    gap: 7px;
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 11px 12px;
+    color: var(--text);
+    background: #fbfdff;
+    font: inherit;
+    font-size: 12px;
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(36, 99, 235, .12);
+}
+
+.contact-submit {
+    height: 42px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--blue);
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.contact-submit:hover {
+    background: #1553d4;
+}
+
+.contact-submit:disabled {
+    cursor: wait;
+    opacity: .65;
+}
+
+.contact-status {
+    min-height: 18px;
+    color: var(--mint);
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #f7fafd;
+    padding: 50px 6% 20px;
+}
+
+.footer-container {
+    max-width: 1050px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 2fr repeat(4, 1fr);
+    gap: 35px;
+}
+
+.footer-brand h3 {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+}
+
+.logo-box {
+    width: 22px;
+    height: 22px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5px;
+
+    background: var(--blue);
+    color: white;
+
+    font-size: 10px;
+}
+
+.footer-brand p {
+    color: #778296;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h4 {
+    font-size: 9px;
+    margin-bottom: 15px;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #788396;
+    font-size: 9px;
+    margin-bottom: 9px;
+}
+
+.footer-column a:hover {
+    color: var(--blue);
+}
+
+.footer-bottom {
+    max-width: 1050px;
+    margin: 35px auto 0;
+    padding-top: 18px;
+
+    border-top: 1px solid #e4eaf1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    font-size: 8px;
+    color: #8993a4;
+}
+
+.social {
+    display: flex;
+    gap: 12px;
+}
+
+.social span {
+    font-size: 10px;
+    color: #657085;
+}
+
+
+/* ================= CHATBOT BUTTON ================= */
+
+.chat-button {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    height: 43px;
+    padding: 0 17px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: var(--blue);
+    color: white;
+
+    box-shadow: 0 8px 25px rgba(36, 99, 235, .3);
+
+    cursor: pointer;
+
+    z-index: 999;
+}
+
+.chat-button span {
+    font-size: 17px;
+}
+
+.chat-button b {
+    font-size: 11px;
+}
+
+
+/* ================= CHAT WINDOW ================= */
+
+.chat-window {
+    position: fixed;
+
+    right: 20px;
+    bottom: 75px;
+
+    width: 330px;
+    height: 430px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    box-shadow: 0 15px 45px rgba(20, 35, 60, .18);
+
+    overflow: hidden;
+
+    display: none;
+
+    flex-direction: column;
+
+    z-index: 1000;
+}
+
+.chat-window.active {
+    display: flex;
+}
+
+.chat-header {
+    background: var(--blue);
+    color: white;
+
+    padding: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chat-header strong {
+    display: block;
+    font-size: 14px;
+}
+
+.chat-header small {
+    display: block;
+    font-size: 9px;
+    margin-top: 3px;
+    opacity: .8;
+}
+
+.chat-header button {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 18px;
+    overflow-y: auto;
+}
+
+.bot-message {
+    width: fit-content;
+    max-width: 85%;
+
+    background: #f1f5f9;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+.user-message {
+    width: fit-content;
+    max-width: 85%;
+    margin-left: auto;
+
+    background: var(--blue);
+    color: white;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    font-size: 11px;
+
+    margin-bottom: 15px;
+}
+
+.quick-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quick-buttons button {
+    background: white;
+
+    border: 1px solid #dce5ef;
+
+    border-radius: 7px;
+
+    padding: 9px;
+
+    text-align: left;
+
+    color: var(--blue);
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.quick-buttons button:hover {
+    background: #f3f7ff;
+}
+
+.chat-payment-button {
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    background: var(--blue);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.chat-payment-button:hover {
+    background: #1553d4;
+}
+
+.chat-offer-card {
+    margin: 4px 0 15px;
+    padding: 14px;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
+    box-shadow: 0 5px 14px rgba(36, 99, 235, .09);
+}
+
+.chat-offer-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    color: #64748b;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.chat-offer-heading strong {
+    color: var(--blue);
+    font-size: 19px;
+    line-height: 1;
+}
+
+.chat-offer-card h4 {
+    margin: 12px 0 6px;
+    color: #0f172a;
+    font-size: 14px;
+    line-height: 1.25;
+}
+
+.chat-offer-card p {
+    color: #64748b;
+    font-size: 10px;
+    line-height: 1.55;
+}
+
+.chat-offer-card .chat-offer-benefits {
+    margin-top: 8px;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* ================= SERVICE DETAILS ================= */
+
+.service-details-section {
+    scroll-margin-top: 6rem;
+    padding: 1rem 6% 5.5rem;
+    background: linear-gradient(180deg, #fff 0%, #f7fafd 100%);
+}
+
+.service-details-inner {
+    max-width: 1050px;
+    margin: auto;
+    padding: 2.25rem;
+    border: 1px solid #dbeafe;
+    border-radius: 1.5rem;
+    background: #fff;
+    box-shadow: 0 18px 45px rgba(36, 99, 235, .09);
+}
+
+.service-details-intro {
+    max-width: 650px;
+    text-align: center;
+    margin: 0 auto 2rem;
+}
+
+.service-details-badge {
+    display: inline-block;
+    margin-bottom: .7rem;
+    padding: .35rem .8rem;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: var(--blue);
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.service-details-intro h2 {
+    color: var(--dark);
+    font-size: clamp(1.7rem, 4vw, 2.35rem);
+    line-height: 1.15;
+    letter-spacing: -.04em;
+}
+
+.service-details-intro p {
+    margin-top: .75rem;
+    color: var(--muted);
+    font-size: .95rem;
+    line-height: 1.7;
+}
+
+.service-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.service-detail-card {
+    min-height: 13.5rem;
+    padding: 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: #fff;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.service-detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(36, 99, 235, .1);
+}
+
+.service-detail-icon {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    place-items: center;
+    margin-bottom: 1rem;
+    border-radius: .7rem;
+    background: #eff6ff;
+    color: var(--blue);
+    font-weight: 800;
+}
+
+.service-detail-card h3 {
+    margin-bottom: .8rem;
+    color: var(--dark);
+    font-size: .95rem;
+}
+
+.service-detail-card p,
+.service-detail-card li,
+.service-detail-card span {
+    color: var(--muted);
+    font-size: .78rem;
+    line-height: 1.6;
+}
+
+.service-detail-card ul {
+    display: grid;
+    gap: .35rem;
+    padding-left: 1rem;
+}
+
+.service-detail-card li::marker {
+    color: var(--mint);
+}
+
+.service-detail-price {
+    background: linear-gradient(135deg, #eff6ff, #fff);
+}
+
+.service-detail-price strong {
+    display: block;
+    margin: .1rem 0 .4rem;
+    color: var(--blue);
+    font-size: 1.8rem;
+    letter-spacing: -.05em;
+}
+
+.service-details-cta {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: .65rem;
+    margin: 1.8rem auto 0;
+    padding: .85rem 1.25rem;
+    border-radius: .65rem;
+    background: var(--blue);
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(36, 99, 235, .22);
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.service-details-cta:hover {
+    background: #1553d4;
+    transform: translateY(-2px);
+}
+
+[data-service-card].is-selected {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12), 0 12px 25px rgba(36, 99, 235, .1);
+}
+
+@media (max-width: 800px) {
+    .service-details-grid { grid-template-columns: 1fr; }
+    .service-detail-card { min-height: auto; }
+}
+
+@media (max-width: 500px) {
+    .service-details-section { padding: .5rem 1rem 3.5rem; }
+    .service-details-inner { padding: 1.5rem 1rem; border-radius: 1.1rem; }
+}
+
+.chat-input {
+    display: flex;
+
+    border-top: 1px solid #edf1f5;
+
+    padding: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 8px;
+
+    font-size: 11px;
+}
+
+.chat-input button {
+    width: 35px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: var(--blue);
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .pricing-container {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+    }
+
+    .team-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+    }
+
+    .contact-container {
+        gap: 40px;
+    }
+
+    .price-card.featured {
+        transform: none;
+    }
+
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .pricing-section,
+    .steps-section,
+    .about-section,
+    .contact-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact-field-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .section-heading h1,
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .cta-section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .cta-box {
+        padding: 45px 20px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .chat-window {
+        right: 10px;
+        left: 10px;
+        width: auto;
+    }
+
+    .chat-button {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+/* Existing V² brand asset, kept responsive at every size. */
+.site-logo { width: 2.5rem; height: 2.5rem; object-fit: contain; border-radius: .75rem; }
+.footer-logo { width: 1.4rem; height: 1.4rem; object-fit: contain; border-radius: .3rem; }
+.chat-button-logo { width: 1.45rem; height: 1.45rem; object-fit: contain; border-radius: 50%; background: white; }
+.chat-brand { display: flex; align-items: center; gap: 9px; }
+.chat-logo { width: 2rem; height: 2rem; object-fit: contain; border-radius: 50%; background: white; }
